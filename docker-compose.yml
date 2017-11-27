@@ -1,0 +1,39 @@
+version: "3"
+services:
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.0.0
+        restart: always
+        ports:
+            - 9200:9200
+        volumes:
+            - ./data/elasticsearch/data:/usr/share/elasticsearch/data
+        networks:
+            - elk
+
+    logstash:
+        build: logstash
+        restart: always
+        command: logstash -f /config-dir/logstash.conf
+        privileged: true
+        volumes:
+            - ./data/logstash/pipeline/:/usr/share/logstash/pipeline/
+        ports:
+            - 5044:5044
+        networks:
+            - elk
+        depends_on:
+            - elasticsearch
+
+    kibana:
+        image: docker.elastic.co/kibana/kibana-oss:6.0.0
+        restart: always
+        ports:
+            - 5601:5601
+        networks:
+            - elk
+        depends_on:
+            - elasticsearch
+
+networks:
+    elk:
+        driver: bridge
