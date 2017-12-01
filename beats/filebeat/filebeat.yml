@@ -2,6 +2,7 @@ filebeat.prospectors:
 - type: log
   enabled: true
   harvester_limit: 1
+  #close_inactive: "1m"
   paths:
     - /data/octotron_distro/log/octotron.events.log.*
 
