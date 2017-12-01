@@ -5,4 +5,4 @@ filebeat.prospectors:
     - /data/octotron_distro/log/octotron.events.log.2017*
 
 output.logstash:
-    hosts: ["195.133.147.116:5044"]
+    hosts: ["195.133.147.116:5043"]
