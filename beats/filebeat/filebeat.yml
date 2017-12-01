@@ -2,7 +2,7 @@ filebeat.prospectors:
 - type: log
   enabled: true
   paths:
-    - /data/octotron_distro/log/octotron.events.log.2017_12_01
+    - /data/octotron_distro/log/octotron.events.log.2017*
 
 output.logstash:
     hosts: ["195.133.147.116:5044"]
