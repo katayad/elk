@@ -19,6 +19,7 @@ services:
             - ./data/logstash/pipeline/:/usr/share/logstash/pipeline/
         ports:
             - 5044:5044
+            - 5043:5043
         networks:
             - elk
         depends_on:
