@@ -1,0 +1,8 @@
+filebeat.prospectors:
+- type: log
+  enabled: true
+  paths:
+    - /data/octotron_distro/log/
+
+output.logstash:
+    hosts: ["195.133.147.116:5044"]
