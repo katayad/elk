@@ -1,8 +1,9 @@
 filebeat.prospectors:
 - type: log
   enabled: true
+  harvester_limit: 1
   paths:
-    - /data/octotron_distro/log/octotron.events.log.2017_11*
+    - /data/octotron_distro/log/octotron.events.log.*
 
 output.logstash:
     hosts: ["195.133.147.116:5043"]
